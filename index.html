@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>华思信息</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- tonglan -->
+        <div class="topBar">
+            <div class="w">
+                <div class="topBar-list">
+                    <span>追求现代科技,引领智慧生活</span>
+                    <span>0755-23779656</span>
+                    <span>E-mail：hswen@szhuasi.com</span>
+                </div>
+            </div>
+        </div>
+        <!-- logo -->
+        <div class="thead w clearfix">
+            <div class="logo">
+                <h1>
+                    <a href="#"></a>
+                </h1>
+            </div>
+            <!-- daohanglan -->
+            <ul class="th-nav clearfix">
+                <li><a href="#">首页</a>
+                    <ul class="son">
+                        <li>第1级菜单</li>
+                        <li>第2级菜单</li>
+                        <li>第3级菜单</li>
+                    </ul>
+                </li>
+                <li><a href="#">关于我们</a>
+                    <ul class="son">
+                        <li>第1级菜单</li>
+                        <li>第2级菜单</li>
+                        <li>第3级菜单</li>
+                    </ul>
+                </li>
+                <li><a href="#">新闻中心</a>
+                    <ul class="son">
+                        <li>第1级菜单</li>
+                        <li>第2级菜单</li>
+                        <li>第3级菜单</li>
+                    </ul>
+                </li>
+                <li><a href="#">产品与服务</a>
+                    <ul class="son">
+                        <li>第1级菜单</li>
+                        <li>第2级菜单</li>
+                        <li>第3级菜单</li>
+                    </ul>
+                </li>
+                <li><a href="#">案例展示</a>
+                    <ul class="son">
+                        <li>第1级菜单</li>
+                        <li>第2级菜单</li>
+                        <li>第3级菜单</li>
+                    </ul>
+                </li>
+                <li><a href="#">解决方案</a>
+                    <ul class="son">
+                        <li>第1级菜单</li>
+                        <li>第2级菜单</li>
+                        <li>第3级菜单</li>
+                    </ul>
+                </li>
+                <li><a href="#">服务中心</a>
+                    <ul class="son">
+                        <li>第1级菜单</li>
+                        <li>第2级菜单</li>
+                        <li>第3级菜单</li>
+                    </ul>
+                </li>
+                <li><a href="#">联系我们</a>
+                    <ul class="son">
+                        <li>第1级菜单</li>
+                        <li>第2级菜单</li>
+                        <li>第3级菜单</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="slider">
+            <!--图片容器  8图 -->
+
+            <ul class="clearfix">
+                <li><a href="#"><img src="./imges/banner1-1.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./imges/banner1-2.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./imges/banner1-3.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./imges/banner1-4.jpg" alt=""></a></li>
+            </ul>
+
+            <!--箭头-->
+            <div class="arrow">
+                <span class="arrow-left">&lt;</span>
+                <span class="arrow-right">&gt;</span>
+            </div>
+            <div class="dian">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+        </div>
+        <div class="product">
+            <div class="w">
+                <p class="p_title">产品展示</p>
+                <hr>
+                <div class="p_list">
+                    <ul class="clearfix">
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                        <li><img src="./imges/dxhy.png" alt=""></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var index = 0;
+            var timerID;
+
+            $(".th-nav>li").on("mouseenter", function () {
+                $(this).children(".son").stop(true, false).slideDown(500);
+            }).on("mouseleave", function () {
+                $(this).children(".son").stop(true, false).slideUp(200);
+            });
+            // 轮播图的开始
+            $(".arrow-right").on("click", function () {
+                clearInterval(timerID)
+                index++;
+                if (index >= 4) {
+                    index = 0;
+                }
+                $(".slider li").eq(index).fadeIn(400).siblings().fadeOut(400);
+                $(".dian i").eq(index).css("backgroundColor", "#ee7c26").siblings().css(
+                    "backgroundColor", "rgba(249, 249, 252, 0.5)");
+
+            })
+            $(".arrow-left").on("click", function () {
+                clearInterval(timerID)
+
+                index--;
+                console.log(index);
+
+                if (index < 0) {
+
+                    index = 3;
+                }
+                $(".slider li").eq(index).fadeIn(400).siblings().fadeOut(400);
+                $(".dian i").eq(index).css("backgroundColor", "#ee7c26").siblings().css(
+                    "backgroundColor", "rgba(249, 249, 252, 0.5)");
+
+
+            });
+            $(".dian i").on("click", function () {
+                clearInterval(timerID)
+
+
+                $(this).css("backgroundColor", "#ee7c26").siblings().css("backgroundColor",
+                    "rgba(249, 249, 252, 0.5)");
+
+                var res = $(this).index();
+
+                $(".slider li").eq(res).fadeIn(400).siblings().fadeOut(400);
+
+            })
+            var res2 = 0;
+            timerID = setInterval(function () {
+                res2++;
+                if (res2 >= 4) {
+                    res2 = 0;
+                }
+                $(".slider li").eq(res2).fadeIn(1000).siblings().fadeOut(1000);
+                $(".dian i").eq(res2).css("backgroundColor", "#ee7c26").siblings().css(
+                    "backgroundColor", "rgba(249, 249, 252, 0.5)");
+
+            }, 2000);
+            //产品展示的开始
+            function resTime() {
+                setInterval(function () {
+                    $(".p_list>ul").animate({
+                        left: -267,
+
+                    }, 1000, "linear", function () {
+
+                        $(".p_list>ul").css({
+                            left: 0,
+                        })
+
+                    }, 50);
+
+                })
+            }
+            resTime()
+        })
+    </script>
+
+</body>
+
+</html>
